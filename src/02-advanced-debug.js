@@ -26,3 +26,34 @@ function goodPractices() {
 
 // then, call the function so it runs!
 goodPractices()
+
+
+function bigShoeRebounds() {
+  const game = gameObject();
+  let largestShoeSize = 0;
+  let playerWithLargestShoeSize;
+
+  // Find the player with the largest shoe size
+  for (const teamKey in game) {
+      const players = game[teamKey].players;
+      for (const playerName in players) {
+          const player = players[playerName];
+          if (player.shoe > largestShoeSize) {
+              largestShoeSize = player.shoe;
+              playerWithLargestShoeSize = player;
+              debugger;
+          }
+      }
+  }
+
+  // Return the number of rebounds associated with the player that has the largest shoe size
+  if (playerWithLargestShoeSize) {
+      return playerWithLargestShoeSize.rebounds;
+  } else {
+      return "No player found";
+  }
+}
+// Execute the function and use debugger
+debugger;
+const rebounds = bigShoeRebounds();
+console.log(rebounds); // Output: 19
